@@ -48,7 +48,19 @@ void deleteFromMas(int* source,int n, int size) {
 // Написать функцию сдвига вправо на n-элементов с заполнением крайних элементов нулями
 
 void rShiftMas(int* source,int n, int size) {
-	
+	if (size < n) {
+		for (int i = 0; i < size; i++) {
+			source[i] = 0;
+		}
+	}
+	else {
+		for (int i = size - 1 ; i >= n; i--) {
+			source[i] = source[i - n];
+		}
+		for (int i = 0; i < n; i++) {
+			source[i] = 0;
+		}	
+	}
 }
 
 
@@ -145,7 +157,13 @@ int testDeleteFromMas() {
 // Написать функцию сдвига вправо на n-элементов с заполнением крайних элементов нулями
 
 int testrShiftMas() {
+	int source[5] = {-10, 2, -7, 4, 5};		
+	int result[5] = {0, 0, 0, 0, 0};
+	int shiftCount = 15;
 	
+	rShiftMas(source, shiftCount, 5);
+	
+	return compareMas(source, result, 5);
 }
 
 
