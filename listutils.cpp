@@ -8,18 +8,30 @@ struct Node {
 // Инициализации элемента односвязного списка нулями
 
 void init(Node* node) {
-
+	node->val = 0;
+	node->next = NULL;
 }
 
 // Отображения односвязного списка на экран
 void show(Node* head) {
-
+	Node *print = head;
+	while (print != NULL)
+	{
+		std::cout << print->val << " ";
+		print = print->next;
+	}
+	std::cout << std::endl;
 }
 
 // Добавления элемента в односвязный список
 void pushNode(Node* head,Node* node) {
-
-} 
+	Node* element = head;
+	while (element->next != NULL) element = element->next;
+	element->next = new Node;
+	element = element->next;
+	element->val = node->val;
+	element->next = NULL;
+}
 
 
 // Написать функцию инициализации size элементов списка заданным значением val.
