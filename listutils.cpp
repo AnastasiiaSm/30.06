@@ -26,11 +26,11 @@ void show(Node* head) {
 // Добавления элемента в односвязный список
 void pushNode(Node* head,Node* node) {
 	Node* element = head;
-	while (element->next != NULL) element = element->next;
+	while (element->next != NULL) 
+		element = element->next;
 	element->next = new Node;
 	element = element->next;
 	element->val = node->val;
-	element->next = NULL;
 }
 
 
